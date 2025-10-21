@@ -1,17 +1,5 @@
 {
   "projects": {
     "default": "proud-command-463912-i1"
-  },
-  "targets": {
-    "proud-command-463912-i1": {
-      "hosting": {
-        "test": [
-          "education-innovation-test"
-        ],
-        "prod": [
-          "education-innovation-prod"
-        ]
-      }
-    }
   }
 }
