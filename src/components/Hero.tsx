@@ -18,7 +18,7 @@ const Hero = () => {
         <Header onMenuItemClick={handleMenuItemClick} />
         <Box sx={{ mt: { xs: 3, md: 6.75, lg: 12 } }}>
           <Box>
-            <Typography variant="h1">Innovating homework</Typography>
+            <Typography variant="h1">Innovating Homework</Typography>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <Typography variant="h2">Empowering</Typography>
               <Button variant="contained">students</Button>
