@@ -1,70 +1,66 @@
-import CloseIcon from "@mui/icons-material/Close";
-import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
   Box,
   Button,
   Collapse,
-  Divider,
+  Container,
   IconButton,
-  List,
-  ListItem,
-  ListItemButton,
+  Paper,
   Typography,
   useMediaQuery,
-  useTheme as useMuiTheme,
+  useTheme,
 } from "@mui/material";
-import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { EXTERNAL_URLS } from "../config/constants";
 
-function LogoIcon() {
+// Logo component
+const Logo: React.FC = () => {
+  const theme = useTheme();
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // 644px - 834px
+
   return (
     <Box
       sx={{
-        width: 34,
-        height: 34,
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
-        flexShrink: 0,
+        gap: "7.51px",
       }}
     >
-      <img
+      <Box
+        component="img"
         src="/logo.svg"
         alt="Logo"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "contain",
+        sx={{
+          height: "32px",
+          width: "auto",
         }}
       />
-    </Box>
-  );
-}
-
-function Logo({ showText = true }: { showText?: boolean }) {
-  return (
-    <Box
-      sx={{ display: "flex", alignItems: "center", gap: 1, cursor: "pointer" }}
-    >
-      <LogoIcon />
-      {showText && (
-        <Box sx={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+      {!isTablet && (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "68.68px",
+          }}
+        >
           <Typography
             sx={{
-              fontFamily: "Hanken Grotesk, sans-serif",
-              fontWeight: 900,
-              fontSize: "12.9px",
               color: "text.primary",
+              fontSize: "12.88px",
+              fontWeight: 900,
+              lineHeight: 1,
             }}
           >
             Education
           </Typography>
           <Typography
             sx={{
-              fontFamily: "Hanken Grotesk, sans-serif",
-              fontWeight: 900,
-              fontSize: "12.9px",
               color: "text.primary",
+              fontSize: "12.88px",
+              fontWeight: 900,
+              lineHeight: 1,
             }}
           >
             Innovations
@@ -73,199 +69,263 @@ function Logo({ showText = true }: { showText?: boolean }) {
       )}
     </Box>
   );
-}
+};
 
-interface HeaderProps {
-  onMenuItemClick?: (item: string) => void;
-}
+// Navigation Links component
+const NavLinks: React.FC<{ isMobile?: boolean; onLinkClick?: () => void }> = ({
+  isMobile = false,
+  onLinkClick,
+}) => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-export default function Header({ onMenuItemClick }: HeaderProps) {
-  const theme = useMuiTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "lg"));
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const handleNavigation = (link: string) => {
+    if (onLinkClick) {
+      onLinkClick();
+    }
 
-  const menuItems = ["Home", "Features", "How it works", "Contact us"];
-
-  const handleMenuItemClick = (item: string) => {
-    onMenuItemClick?.(item);
-    setMobileMenuOpen(false);
+    switch (link) {
+      case "Home":
+        if (location.pathname === "/") {
+          // If already on homepage, scroll to top
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          // Navigate to homepage
+          navigate("/");
+        }
+        break;
+      case "Features":
+        if (location.pathname === "/") {
+          // If on homepage, scroll to FeaturesSection
+          const featuresSection = document.getElementById("features-section");
+          if (featuresSection) {
+            featuresSection.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          // Navigate to homepage and scroll to features
+          navigate("/");
+          setTimeout(() => {
+            const featuresSection = document.getElementById("features-section");
+            if (featuresSection) {
+              featuresSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+        }
+        break;
+      case "How it works":
+        if (location.pathname === "/") {
+          // If on homepage, scroll to HowItWorksSection
+          const howItWorksSection = document.getElementById(
+            "how-it-works-section"
+          );
+          if (howItWorksSection) {
+            howItWorksSection.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          // Navigate to homepage and scroll to how it works
+          navigate("/");
+          setTimeout(() => {
+            const howItWorksSection = document.getElementById(
+              "how-it-works-section"
+            );
+            if (howItWorksSection) {
+              howItWorksSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+        }
+        break;
+      case "Contact us":
+        navigate("/contact-us");
+        break;
+      default:
+        break;
+    }
   };
 
-  const handleMobileMenuToggle = () => {
+  const links = ["Home", "Features", "How it works", "Contact us"];
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: isMobile ? "column" : "row",
+        alignItems: isMobile ? "flex-start" : "center",
+        gap: isMobile ? "32px" : "40px",
+      }}
+    >
+      {links.map((link) => (
+        <Typography
+          key={link}
+          onClick={() => handleNavigation(link)}
+          variant={isMobile ? "body_semibold" : "paragraph_semibold"}
+          sx={{
+            textAlign: "center",
+            color: "text.primary",
+            cursor: "pointer",
+            "&:hover": {
+              color: "primary.main",
+            },
+          }}
+        >
+          {link}
+        </Typography>
+      ))}
+    </Box>
+  );
+};
+
+// Sign In Button component
+const SignInButton: React.FC<{
+  size?: "small" | "large";
+  fullWidth?: boolean;
+}> = ({ size = "large", fullWidth = false }) => {
+  const handleSignIn = () => {
+    window.open(EXTERNAL_URLS.HOMEWORKROOSTER, "_blank");
+  };
+
+  return (
+    <Button
+      variant="contained"
+      onClick={handleSignIn}
+      fullWidth={fullWidth}
+      sx={{
+        width: fullWidth ? "auto" : size === "large" ? "120px" : "auto",
+        minWidth: size === "small" ? "124px" : "120px",
+        height: size === "large" ? "50px" : "auto",
+        py: size === "large" ? "12px" : "8px",
+      }}
+    >
+      Sign in
+    </Button>
+  );
+};
+
+// Main Header Component
+const Header: React.FC = () => {
+  const theme = useTheme();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Responsive breakpoints
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // < 644px
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // 644px - 834px
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md")); // >= 834px
+
+  const handleMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Mobile version
-  if (isMobile) {
-    return (
-      <Box sx={{ width: "100%" }}>
-        <AppBar
-          position="static"
-          elevation={0}
-          sx={{
-            bgcolor: "white",
-            borderRadius: mobileMenuOpen ? "24px 24px 0 0" : "999px",
-            boxShadow: "0px 2px 8px 0px rgba(0, 0, 0, 0.08)",
-            transition: "border-radius 0.3s ease",
-            width: "100%",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              px: 2,
-              py: 1,
-            }}
-          >
-            <Logo />
-            <IconButton
-              onClick={handleMobileMenuToggle}
-              sx={{
-                width: 30,
-                height: 30,
-                color: "text.primary",
-              }}
-            >
-              {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-            </IconButton>
-          </Box>
-
-          {/* Mobile Dropdown Menu */}
-          <Collapse in={mobileMenuOpen} timeout="auto" unmountOnExit>
-            <Box sx={{ pb: 2 }}>
-              <Divider sx={{ mb: 1 }} />
-              <List sx={{ px: 1 }}>
-                {menuItems.map((item) => (
-                  <ListItem key={item} disablePadding>
-                    <ListItemButton
-                      onClick={() => handleMenuItemClick(item)}
-                      sx={{
-                        borderRadius: "12px",
-                        "&:hover": {
-                          bgcolor: "rgba(27, 68, 254, 0.04)",
-                        },
-                      }}
-                    >
-                      <Typography
-                        variant="body_semibold"
-                        sx={{ color: "text.primary" }}
-                      >
-                        {item}
-                      </Typography>
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-              <Box sx={{ px: 2, pt: 1 }}>
-                <Button variant="contained" fullWidth>
-                  Sign in
-                </Button>
-              </Box>
-            </Box>
-          </Collapse>
-        </AppBar>
-      </Box>
-    );
-  }
-
-  // Tablet version
-  if (isTablet) {
-    return (
+  return (
+    <>
       <AppBar
         position="static"
         elevation={0}
         sx={{
-          bgcolor: "white",
-          borderRadius: "999px",
-          boxShadow: "0px 2px 8px 0px rgba(0, 0, 0, 0.08)",
-          width: "100%",
+          background: "transparent",
+          boxShadow: "none",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            pl: 3,
-            pr: 1,
-            py: 1,
-          }}
-        >
-          <Logo showText={false} />
-
-          <Box sx={{ display: "flex", gap: 5, alignItems: "center" }}>
-            {menuItems.map((item) => (
-              <Typography
-                key={item}
-                variant="body_semibold"
-                sx={{
-                  cursor: "pointer",
-                  color: "text.primary",
-                  "&:hover": {
-                    color: "primary.main",
-                  },
-                }}
-                onClick={() => handleMenuItemClick(item)}
-              >
-                {item}
-              </Typography>
-            ))}
-          </Box>
-
-          <Button variant="contained">Sign in</Button>
-        </Box>
-      </AppBar>
-    );
-  }
-
-  // Desktop version
-  return (
-    <AppBar
-      position="static"
-      elevation={0}
-      sx={{
-        bgcolor: "white",
-        borderRadius: "999px",
-        boxShadow: "0px 2px 8px 0px rgba(0, 0, 0, 0.08)",
-        width: "100%",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          pl: 3,
-          pr: 1,
-          py: 1,
-        }}
-      >
-        <Logo />
-
-        <Box sx={{ display: "flex", gap: 5, alignItems: "center" }}>
-          {menuItems.map((item) => (
-            <Typography
-              key={item}
-              variant="paragraph_semibold"
+        <Container maxWidth="xl">
+          <Paper
+            elevation={2}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              bgcolor: "surface.color1",
+              borderRadius: "999px",
+              overflow: "hidden",
+            }}
+          >
+            {/* Main Header Bar */}
+            <Box
               sx={{
-                cursor: "pointer",
-                color: "text.primary",
-                "&:hover": {
-                  color: "primary.main",
-                },
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                py: 1,
+                px: isMobile ? 2 : 3,
+                pr: isMobile ? 2.5 : 1,
               }}
-              onClick={() => handleMenuItemClick(item)}
             >
-              {item}
-            </Typography>
-          ))}
-        </Box>
+              {/* Logo */}
+              <Logo />
 
-        <Button variant="contained">Sign in</Button>
-      </Box>
-    </AppBar>
+              {/* Desktop Navigation */}
+              {isDesktop && (
+                <>
+                  <Box
+                    sx={{ flex: 1, display: "flex", justifyContent: "center" }}
+                  >
+                    <NavLinks />
+                  </Box>
+                  <SignInButton size="large" />
+                </>
+              )}
+
+              {/* Tablet Navigation */}
+              {isTablet && !isMobile && (
+                <>
+                  <NavLinks />
+                  <SignInButton size="small" />
+                </>
+              )}
+
+              {/* Mobile Hamburger Menu */}
+              {isMobile && (
+                <IconButton
+                  onClick={handleMenuToggle}
+                  sx={{
+                    p: 0,
+                    width: "30px",
+                    height: "30px",
+                  }}
+                >
+                  {mobileMenuOpen ? (
+                    <X
+                      size={24}
+                      style={{ color: "var(--mui-palette-text-primary)" }}
+                    />
+                  ) : (
+                    <Menu
+                      size={24}
+                      style={{ color: "var(--mui-palette-text-primary)" }}
+                    />
+                  )}
+                </IconButton>
+              )}
+            </Box>
+
+            {/* Mobile Expanded Menu */}
+            {isMobile && (
+              <Collapse in={mobileMenuOpen}>
+                <Box
+                  sx={{
+                    mt: 4,
+                    pb: 3,
+                    px: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 3,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "32px",
+                      mb: 4,
+                    }}
+                  >
+                    <NavLinks isMobile onLinkClick={handleMenuToggle} />
+                  </Box>
+                  <SignInButton size="small" fullWidth />
+                </Box>
+              </Collapse>
+            )}
+          </Paper>
+        </Container>
+      </AppBar>
+    </>
   );
-}
+};
+
+export default Header;
