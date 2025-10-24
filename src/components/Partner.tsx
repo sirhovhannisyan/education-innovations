@@ -1,7 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
-import ResponsiveImage from "./ResponsiveImage";
 
 const Partner: React.FC = () => {
   const theme = useTheme();
@@ -336,66 +335,20 @@ const Partner: React.FC = () => {
           sx={{
             width: { xs: "301px", sm: "301px", md: "432px" },
             height: { xs: "267px", sm: "267.56px", md: "384px" },
-            position: "relative",
+            borderRadius: { xs: "16.72px", sm: "16.72px", md: "24px" },
+            overflow: "hidden",
           }}
         >
-          {/* Background Image (Main University Image) */}
           <Box
+            component="img"
+            src="/partner_1.png"
+            alt="University Partner"
             sx={{
-              width: { xs: "211.04px", sm: "211.04px", md: "302.89px" },
-              height: { xs: "187.85px", sm: "187.85px", md: "269.61px" },
-              left: { xs: "89.98px", sm: "89.98px", md: "129.14px" },
-              top: { xs: "79.3px", sm: "80.3px", md: "115.24px" },
-              borderRadius: { xs: "16.72px", sm: "16.72px", md: "24px" },
-              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
             }}
-          >
-            <ResponsiveImage
-              imageName="partner_1_bg_1"
-              alt="University"
-              sx={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: { xs: "16.72px", sm: "16.72px", md: "24px" },
-              }}
-            />
-          </Box>
-
-          {/* Foreground Logo Card */}
-          <Box
-            sx={{
-              position: "absolute",
-              bgcolor: "surface.color2",
-              borderRadius: { xs: "16.72px", sm: "16.72px", md: "24px" },
-            }}
-          >
-            <Box
-              sx={{
-                width: { xs: "208px", sm: "208px", md: "300px" },
-                height: { xs: "135px", sm: "126px", md: "195px" },
-                left: 0,
-                top: { xs: 0, sm: "6.78px", md: "0.59px" },
-                bgcolor: "surface.color2",
-                overflow: "hidden",
-                borderRadius: { xs: "16.72px", sm: "16.72px", md: "24px" },
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <ResponsiveImage
-                imageName="partner_1"
-                alt="University Logo"
-                sx={{
-                  width: { xs: "139px", sm: "121px", md: "200px" },
-                  height: { xs: "90px", sm: "78px", md: "120px" },
-                  objectFit: "contain",
-                  //   borderRadius: { xs: "16.72px", sm: "16.72px", md: "24px" },
-                }}
-              />
-            </Box>
-          </Box>
+          />
         </Box>
       </Box>
     </Box>

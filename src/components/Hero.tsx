@@ -7,15 +7,28 @@ import {
 } from "@mui/material";
 import { Play } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import ResponsiveImage from "./ResponsiveImage";
 
 const Hero: React.FC = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   // Responsive breakpoints
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // < 644px
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // 644px - 834px
   const isDesktop = useMediaQuery(theme.breakpoints.up("md")); // >= 834px
+
+  const handleWatchVideo = () => {
+    const videoSection = document.getElementById("video-section");
+    if (videoSection) {
+      videoSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleRequestDemo = () => {
+    navigate("/contact-us");
+  };
 
   return (
     <Box
@@ -269,6 +282,7 @@ const Hero: React.FC = () => {
             >
               <Button
                 variant="contained"
+                onClick={handleWatchVideo}
                 startIcon={
                   <Box
                     sx={{
@@ -298,6 +312,7 @@ const Hero: React.FC = () => {
               </Button>
               <Button
                 variant="text"
+                onClick={handleRequestDemo}
                 fullWidth={isMobile}
                 sx={{
                   height: isMobile ? "auto" : "50px",

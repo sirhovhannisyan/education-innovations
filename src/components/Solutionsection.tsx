@@ -67,7 +67,7 @@ const SolutionSection: React.FC = () => {
         <Typography
           sx={{
             fontSize: { xs: "32px", sm: "48px", md: "64px" },
-            fontFamily: "Hanken Grotesk",
+            fontFamily: "DM Sans",
             fontWeight: 700,
             lineHeight: { xs: 1.2, sm: 1.2, md: 1.2 },
             wordWrap: "break-word",

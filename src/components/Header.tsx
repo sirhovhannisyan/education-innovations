@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { Menu, X } from "lucide-react";
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { EXTERNAL_URLS } from "../config/constants";
 
 // Logo component
 const Logo: React.FC = () => {
@@ -74,6 +76,72 @@ const NavLinks: React.FC<{ isMobile?: boolean; onLinkClick?: () => void }> = ({
   isMobile = false,
   onLinkClick,
 }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (link: string) => {
+    if (onLinkClick) {
+      onLinkClick();
+    }
+
+    switch (link) {
+      case "Home":
+        if (location.pathname === "/") {
+          // If already on homepage, scroll to top
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          // Navigate to homepage
+          navigate("/");
+        }
+        break;
+      case "Features":
+        if (location.pathname === "/") {
+          // If on homepage, scroll to FeaturesSection
+          const featuresSection = document.getElementById("features-section");
+          if (featuresSection) {
+            featuresSection.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          // Navigate to homepage and scroll to features
+          navigate("/");
+          setTimeout(() => {
+            const featuresSection = document.getElementById("features-section");
+            if (featuresSection) {
+              featuresSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+        }
+        break;
+      case "How it works":
+        if (location.pathname === "/") {
+          // If on homepage, scroll to HowItWorksSection
+          const howItWorksSection = document.getElementById(
+            "how-it-works-section"
+          );
+          if (howItWorksSection) {
+            howItWorksSection.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          // Navigate to homepage and scroll to how it works
+          navigate("/");
+          setTimeout(() => {
+            const howItWorksSection = document.getElementById(
+              "how-it-works-section"
+            );
+            if (howItWorksSection) {
+              howItWorksSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+        }
+        break;
+      case "Contact us":
+        navigate("/contact-us");
+        break;
+      default:
+        break;
+    }
+  };
+
   const links = ["Home", "Features", "How it works", "Contact us"];
 
   return (
@@ -88,7 +156,7 @@ const NavLinks: React.FC<{ isMobile?: boolean; onLinkClick?: () => void }> = ({
       {links.map((link) => (
         <Typography
           key={link}
-          onClick={onLinkClick}
+          onClick={() => handleNavigation(link)}
           variant={isMobile ? "body_semibold" : "paragraph_semibold"}
           sx={{
             textAlign: "center",
@@ -111,9 +179,14 @@ const SignInButton: React.FC<{
   size?: "small" | "large";
   fullWidth?: boolean;
 }> = ({ size = "large", fullWidth = false }) => {
+  const handleSignIn = () => {
+    window.open(EXTERNAL_URLS.HOMEWORKROOSTER, "_blank");
+  };
+
   return (
     <Button
       variant="contained"
+      onClick={handleSignIn}
       fullWidth={fullWidth}
       sx={{
         width: fullWidth ? "auto" : size === "large" ? "120px" : "auto",
@@ -158,7 +231,7 @@ const Header: React.FC = () => {
               display: "flex",
               flexDirection: "column",
               bgcolor: "surface.color1",
-              borderRadius: "16px",
+              borderRadius: "999px",
               overflow: "hidden",
             }}
           >
@@ -171,7 +244,6 @@ const Header: React.FC = () => {
                 py: 1,
                 px: isMobile ? 2 : 3,
                 pr: isMobile ? 2.5 : 1,
-                height: "56px",
               }}
             >
               {/* Logo */}

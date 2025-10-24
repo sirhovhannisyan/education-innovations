@@ -6,6 +6,8 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { EXTERNAL_URLS } from "../config/constants";
 
 // Logo component for footer
 const FooterLogo: React.FC = () => {
@@ -97,9 +99,18 @@ const ContactItem: React.FC<{
 
 const Footer: React.FC = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // < 644px
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // 644px - 834px
   const isDesktop = useMediaQuery(theme.breakpoints.up("md")); // >= 834px
+
+  const handleContactUs = () => {
+    navigate("/contact-us");
+  };
+
+  const handlePrivacyTerms = () => {
+    window.open(EXTERNAL_URLS.TERMS_CONDITIONS, "_blank");
+  };
 
   return (
     <Box
@@ -288,6 +299,7 @@ const Footer: React.FC = () => {
               >
                 <Typography
                   variant="paragraph_regular"
+                  onClick={handleContactUs}
                   sx={{
                     color: "surface.color1",
                     textAlign: "center",
@@ -301,6 +313,7 @@ const Footer: React.FC = () => {
                 </Typography>
                 <Typography
                   variant="paragraph_regular"
+                  onClick={handlePrivacyTerms}
                   sx={{
                     color: "surface.color1",
                     textAlign: "center",
@@ -314,6 +327,7 @@ const Footer: React.FC = () => {
                 </Typography>
                 <Typography
                   variant="paragraph_regular"
+                  onClick={handlePrivacyTerms}
                   sx={{
                     color: "surface.color1",
                     textAlign: "center",
@@ -367,6 +381,7 @@ const Footer: React.FC = () => {
                 >
                   <Typography
                     variant="body_regular"
+                    onClick={handleContactUs}
                     sx={{
                       color: "surface.color1",
                       textAlign: "center",
@@ -380,6 +395,7 @@ const Footer: React.FC = () => {
                   </Typography>
                   <Typography
                     variant="body_regular"
+                    onClick={handlePrivacyTerms}
                     sx={{
                       color: "surface.color1",
                       textAlign: "center",
@@ -393,6 +409,7 @@ const Footer: React.FC = () => {
                   </Typography>
                   <Typography
                     variant="body_regular"
+                    onClick={handlePrivacyTerms}
                     sx={{
                       color: "surface.color1",
                       textAlign: "center",
@@ -439,6 +456,7 @@ const Footer: React.FC = () => {
                 >
                   <Typography
                     variant="body_regular"
+                    onClick={handleContactUs}
                     sx={{
                       color: "surface.color1",
                       textAlign: "center",
@@ -452,6 +470,7 @@ const Footer: React.FC = () => {
                   </Typography>
                   <Typography
                     variant="body_regular"
+                    onClick={handlePrivacyTerms}
                     sx={{
                       color: "surface.color1",
                       textAlign: "center",
@@ -465,6 +484,7 @@ const Footer: React.FC = () => {
                   </Typography>
                   <Typography
                     variant="body_regular"
+                    onClick={handlePrivacyTerms}
                     sx={{
                       color: "surface.color1",
                       textAlign: "center",

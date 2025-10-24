@@ -1,7 +1,14 @@
 import { Box, Button, Card, CardContent, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const FeaturesSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleContactUs = () => {
+    navigate("/contact-us");
+  };
+
   const renderChartBars = () => {
     const bars = [
       { left: 51, top: 53.72, height: 61.92 },
@@ -37,6 +44,7 @@ const FeaturesSection: React.FC = () => {
 
   return (
     <Box
+      id="features-section"
       sx={{
         width: "100%",
         px: { xs: 2.5, sm: 5, md: 12.5 },
@@ -264,7 +272,7 @@ const FeaturesSection: React.FC = () => {
           >
             <Box
               component="img"
-              src="https://placehold.co/400x232"
+              src="feature_3.png"
               alt="Teacher growth"
               sx={{
                 width: "100%",
@@ -584,6 +592,7 @@ const FeaturesSection: React.FC = () => {
           </Box>
           <Button
             variant="contained"
+            onClick={handleContactUs}
             sx={{
               alignSelf: { xs: "stretch", sm: "flex-start", md: "flex-start" },
               height: { xs: "auto", sm: "auto", md: "50px" },

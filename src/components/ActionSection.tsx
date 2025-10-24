@@ -6,11 +6,17 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ActionSection: React.FC = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+
+  const handleContactUs = () => {
+    navigate("/contact-us");
+  };
 
   return (
     <Box
@@ -155,6 +161,7 @@ const ActionSection: React.FC = () => {
           {/* Primary Button - Join Pilot Program */}
           <Button
             variant="contained"
+            onClick={handleContactUs}
             sx={{
               height: { xs: "50px", sm: "auto", md: "50px" },
               px: 3, // 24px
@@ -184,6 +191,7 @@ const ActionSection: React.FC = () => {
           {/* Secondary Button - Request a demo */}
           <Button
             variant="outlined"
+            onClick={handleContactUs}
             sx={{
               height: { xs: "50px", sm: "auto", md: "50px" },
               px: 3, // 24px

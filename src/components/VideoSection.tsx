@@ -22,6 +22,7 @@ const VideoSection: React.FC = () => {
 
   return (
     <Box
+      id="video-section"
       sx={{
         alignSelf: "stretch",
         px: { xs: 2.5, sm: 5, md: 12.5 }, // 20px, 40px, 100px
