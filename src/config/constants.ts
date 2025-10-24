@@ -6,3 +6,10 @@ export const EXTERNAL_URLS = {
     import.meta.env.VITE_TERMS_CONDITIONS_URL ||
     "https://homeworkrooster.com/terms-and-conditions",
 } as const;
+
+// API endpoints configuration
+export const API_ENDPOINTS = {
+  CONTACT_EMAIL:
+    import.meta.env.VITE_CONTACT_EMAIL_API ||
+    "https://api-prod-388599107889.europe-west4.run.app/education/email",
+} as const;

@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { Mail, Phone } from "lucide-react";
 import React, { useState } from "react";
+import { API_ENDPOINTS } from "../config/constants";
 
 interface ContactFormData {
   firstName: string;
@@ -103,7 +104,7 @@ const ContactUsSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:8080/education/email", {
+      const response = await fetch(API_ENDPOINTS.CONTACT_EMAIL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
