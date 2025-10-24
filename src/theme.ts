@@ -86,66 +86,66 @@ const themeOptions: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: "Hanken Grotesk, sans-serif",
+    fontFamily: "DM Sans, sans-serif",
     h1: {
       fontSize: "64px",
       fontWeight: 700,
       lineHeight: "64px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     h2: {
       fontSize: "48px",
       fontWeight: 700,
       lineHeight: "48px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     h3: {
       fontSize: "32px",
       fontWeight: 700,
       lineHeight: "32px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     h4: {
       fontSize: "20px",
       fontWeight: 700,
       lineHeight: "20px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     paragraph_semibold: {
       fontSize: "18px",
       fontWeight: 600,
       lineHeight: "28px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     paragraph_regular: {
       fontSize: "18px",
       fontWeight: 400,
       lineHeight: "28px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     body_semibold: {
       fontSize: "16px",
       fontWeight: 600,
       lineHeight: "24px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     body_regular: {
       fontSize: "16px",
       fontWeight: 400,
       lineHeight: "24px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     body1: {
       fontSize: "16px",
       fontWeight: 400,
       lineHeight: "24px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
     body2: {
       fontSize: "18px",
       fontWeight: 400,
       lineHeight: "28px",
-      fontFamily: "Hanken Grotesk, sans-serif",
+      fontFamily: "DM Sans, sans-serif",
     },
   },
   shadows: [
@@ -181,7 +181,7 @@ const themeOptions: ThemeOptions = {
         root: {
           textTransform: "none",
           borderRadius: "999px",
-          fontFamily: "Hanken Grotesk, sans-serif",
+          fontFamily: "DM Sans, sans-serif",
           fontSize: "16px",
           fontWeight: 600,
           padding: "12px 32px",
@@ -226,7 +226,7 @@ const themeOptions: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: "100px",
-          fontFamily: "Hanken Grotesk, sans-serif",
+          fontFamily: "DM Sans, sans-serif",
           fontSize: "16px",
           fontWeight: 400,
           padding: "8px 16px",
@@ -248,7 +248,7 @@ const themeOptions: ThemeOptions = {
         root: {
           "& .MuiOutlinedInput-root": {
             borderRadius: "24px",
-            fontFamily: "Hanken Grotesk, sans-serif",
+            fontFamily: "DM Sans, sans-serif",
             fontSize: "16px",
             backgroundColor: "#FFFFFF",
             "& fieldset": {
@@ -272,7 +272,7 @@ const themeOptions: ThemeOptions = {
           },
           "& .MuiInputLabel-root": {
             color: "#1E1E1F",
-            fontFamily: "Hanken Grotesk, sans-serif",
+            fontFamily: "DM Sans, sans-serif",
             fontSize: "16px",
             "&.Mui-focused": {
               color: "#1B44FE",
@@ -286,7 +286,7 @@ const themeOptions: ThemeOptions = {
             opacity: 1,
           },
           "& .MuiFormHelperText-root": {
-            fontFamily: "Hanken Grotesk, sans-serif",
+            fontFamily: "DM Sans, sans-serif",
             fontSize: "14px",
             marginLeft: "16px",
             "&.Mui-error": {
