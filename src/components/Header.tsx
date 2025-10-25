@@ -231,7 +231,7 @@ const Header: React.FC = () => {
               display: "flex",
               flexDirection: "column",
               bgcolor: "surface.color1",
-              borderRadius: "999px",
+              borderRadius: { xs: "16px", sm: "999px", md: "999px" },
               overflow: "hidden",
             }}
           >

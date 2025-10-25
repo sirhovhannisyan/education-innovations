@@ -2,7 +2,6 @@ import {
   Alert,
   Box,
   Button,
-  Container,
   Snackbar,
   TextField,
   Typography,
@@ -151,7 +150,6 @@ const ContactUsSection: React.FC = () => {
         alignSelf: "stretch",
         pt: "24px",
         pb: "96px",
-        px: { xs: "20px", sm: "40px", md: "100px" },
         background:
           "linear-gradient(179deg, #D9E7FE 37%, rgba(255, 255, 255, 0) 100%)",
         overflow: "hidden",
@@ -161,11 +159,8 @@ const ContactUsSection: React.FC = () => {
         alignItems: "center",
       }}
     >
-      <Container
-        maxWidth={false}
-        disableGutters
+      <Box
         sx={{
-          maxWidth: "1600px",
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           justifyContent: "flex-start",
@@ -711,7 +706,7 @@ const ContactUsSection: React.FC = () => {
             />
           </Box>
         </Box>
-      </Container>
+      </Box>
 
       {/* Success/Error Snackbar */}
       <Snackbar

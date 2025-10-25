@@ -95,6 +95,7 @@ const ActionSection: React.FC = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                border: "2px solid white",
               }}
             >
               <img
@@ -190,7 +191,7 @@ const ActionSection: React.FC = () => {
 
           {/* Secondary Button - Request a demo */}
           <Button
-            variant="outlined"
+            variant="text"
             onClick={handleContactUs}
             sx={{
               height: { xs: "50px", sm: "auto", md: "50px" },
@@ -207,9 +208,6 @@ const ActionSection: React.FC = () => {
               lineHeight: "28px",
               border: "none",
               width: { xs: "225px", sm: "auto", md: "auto" },
-              "&:hover": {
-                backgroundColor: "rgba(30, 30, 31, 0.04)",
-              },
             }}
           >
             Request a demo

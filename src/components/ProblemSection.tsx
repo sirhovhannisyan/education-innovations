@@ -26,43 +26,32 @@ const ProblemItem: React.FC<ProblemItemProps> = ({ text }) => {
         sx={{
           overflow: "hidden",
           borderRadius: "999px",
-          border: { xs: "1px solid", sm: "0.86px solid", md: "1px solid" },
-          borderColor: "error.main",
-          display: "flex",
+          outline: "1px solid",
+          outlineColor: "error.main",
+          outlineOffset: "-1px",
+          display: "inline-flex",
           justifyContent: "center",
           alignItems: "center",
-          flexShrink: 0,
         }}
       >
         <Box
           sx={{
-            padding: { xs: "4px", sm: "3.43px", md: "4px" },
-            bgcolor: "surface.color1",
+            padding: "4px",
+            background: "surface.color1",
             overflow: "hidden",
-            borderRadius: { xs: "8px", sm: "6.86px", md: "8px" },
+            borderRadius: "8px",
             display: "flex",
             justifyContent: "center",
-            alignItems: "flex-end",
+            alignItems: "center",
           }}
         >
-          <Box
+          <CloseIcon
             sx={{
-              width: { xs: "20px", sm: "17.14px", md: "20px" },
-              height: { xs: "20px", sm: "17.14px", md: "20px" },
-              position: "relative",
+              width: "20px",
+              height: "20px",
+              color: "error.main",
             }}
-          >
-            <CloseIcon
-              sx={{
-                width: { xs: "20px", sm: "17.14px", md: "20px" },
-                height: { xs: "20px", sm: "17.14px", md: "20px" },
-                color: "error.main",
-                position: "absolute",
-                left: 0,
-                top: 0,
-              }}
-            />
-          </Box>
+          />
         </Box>
       </Box>
 

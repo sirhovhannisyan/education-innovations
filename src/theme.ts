@@ -87,6 +87,9 @@ const themeOptions: ThemeOptions = {
   },
   typography: {
     fontFamily: "DM Sans, sans-serif",
+    allVariants: {
+      fontFamily: "DM Sans, sans-serif",
+    },
     h1: {
       fontSize: "64px",
       fontWeight: 700,
@@ -176,6 +179,23 @@ const themeOptions: ThemeOptions = {
     "0px 76px 152px 0px rgba(0, 0, 0, 0.44)",
   ],
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          fontFamily: "DM Sans, sans-serif",
+        },
+        "*": {
+          fontFamily: "DM Sans, sans-serif !important",
+        },
+        "html, body, #root": {
+          fontFamily: "DM Sans, sans-serif !important",
+        },
+        "div, span, p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, label":
+          {
+            fontFamily: "DM Sans, sans-serif !important",
+          },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -217,7 +237,9 @@ const themeOptions: ThemeOptions = {
         text: {
           color: "#1E1E1F",
           "&:hover": {
-            backgroundColor: "rgba(27, 68, 254, 0.04)",
+            backgroundColor: "transparent !important",
+            color: "#1B44FE",
+            boxShadow: "none",
           },
         },
       },
@@ -240,6 +262,20 @@ const themeOptions: ThemeOptions = {
           "&:hover": {
             backgroundColor: "rgba(220, 229, 255, 0.5)",
           },
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontFamily: "DM Sans, sans-serif !important",
+        },
+      },
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          fontFamily: "DM Sans, sans-serif !important",
         },
       },
     },
