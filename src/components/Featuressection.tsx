@@ -112,11 +112,13 @@ const FeaturesSection: React.FC = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     background:
-                      "radial-gradient(88% 75% at 50% 50%, #1B44FE 37.45%, #5375FE 100%)",
+                      "radial-gradient(ellipse 88.00% 75.00% at 50.00% 50.00%, #1B44FE 37%, #5375FE 100%)",
                     boxShadow:
-                      "0px 6.86px 20.59px -1.23px rgba(28, 70, 255, 0.24)",
+                      "0px 6.8627448081970215px 20.588233947753906px -1.2254902124404907px rgba(28, 70, 255, 0.24)",
                     borderRadius: { xs: "6.4px", sm: "6.4px", md: "8px" },
+                    overflow: "hidden",
                     color: "white",
+                    border: "2px solid",
                   }}
                 >
                   <img
@@ -212,10 +214,11 @@ const FeaturesSection: React.FC = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   background:
-                    "radial-gradient(88% 75% at 50% 50%, #1B44FE 37.45%, #5375FE 100%)",
+                    "radial-gradient(ellipse 88.00% 75.00% at 50.00% 50.00%, #1B44FE 37%, #5375FE 100%)",
                   boxShadow:
-                    "0px 6.86px 20.59px -1.23px rgba(28, 70, 255, 0.24)",
+                    "0px 6.8627448081970215px 20.588233947753906px -1.2254902124404907px rgba(28, 70, 255, 0.24)",
                   borderRadius: { xs: "6.4px", sm: "6.4px", md: "8px" },
+                  overflow: "hidden",
                   color: "white",
                 }}
               >
@@ -322,11 +325,13 @@ const FeaturesSection: React.FC = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     background:
-                      "radial-gradient(88% 75% at 50% 50%, #1B44FE 37.45%, #5375FE 100%)",
+                      "radial-gradient(ellipse 88.00% 75.00% at 50.00% 50.00%, #1B44FE 37%, #5375FE 100%)",
                     boxShadow:
-                      "0px 6.86px 20.59px -1.23px rgba(28, 70, 255, 0.24)",
+                      "0px 6.8627448081970215px 20.588233947753906px -1.2254902124404907px rgba(28, 70, 255, 0.24)",
                     borderRadius: { xs: "6.4px", sm: "6.4px", md: "8px" },
+                    overflow: "hidden",
                     color: "white",
+                    border: "2px solid",
                   }}
                 >
                   <img
@@ -404,11 +409,13 @@ const FeaturesSection: React.FC = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     background:
-                      "radial-gradient(88% 75% at 50% 50%, #1B44FE 37.45%, #5375FE 100%)",
+                      "radial-gradient(ellipse 88.00% 75.00% at 50.00% 50.00%, #1B44FE 37%, #5375FE 100%)",
                     boxShadow:
-                      "0px 6.86px 20.59px -1.23px rgba(28, 70, 255, 0.24)",
+                      "0px 6.8627448081970215px 20.588233947753906px -1.2254902124404907px rgba(28, 70, 255, 0.24)",
                     borderRadius: { xs: "6.4px", sm: "6.4px", md: "8px" },
+                    overflow: "hidden",
                     color: "white",
+                    border: "2px solid",
                   }}
                 >
                   <img
@@ -490,10 +497,11 @@ const FeaturesSection: React.FC = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   background:
-                    "radial-gradient(88% 75% at 50% 50%, #1B44FE 37.45%, #5375FE 100%)",
+                    "radial-gradient(ellipse 88.00% 75.00% at 50.00% 50.00%, #1B44FE 37%, #5375FE 100%)",
                   boxShadow:
-                    "0px 6.86px 20.59px -1.23px rgba(28, 70, 255, 0.24)",
+                    "0px 6.8627448081970215px 20.588233947753906px -1.2254902124404907px rgba(28, 70, 255, 0.24)",
                   borderRadius: { xs: "6.4px", sm: "6.4px", md: "8px" },
+                  overflow: "hidden",
                   color: "white",
                 }}
               >

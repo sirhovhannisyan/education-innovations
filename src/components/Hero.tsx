@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
     <Box
       sx={{
         alignSelf: "stretch",
-        height: "100vh",
+        height: { xs: "auto", sm: "auto", md: "100vh" },
         pb: isMobile ? 3 : isTablet ? 7 : 12,
         px: isMobile ? 2.5 : isTablet ? 5 : 12.5,
         overflow: "hidden",
@@ -247,7 +247,7 @@ const Hero: React.FC = () => {
           <Box
             sx={{
               alignSelf: "stretch",
-              display: "flex",
+              display: { xs: "block", sm: "flex", md: "flex" },
               flexDirection: "column",
               justifyContent: "flex-start",
               alignItems: "flex-start",
@@ -278,6 +278,7 @@ const Hero: React.FC = () => {
                 alignItems: "flex-start",
                 gap: 2,
                 flexDirection: isMobile ? "column" : "row",
+                mt: isMobile ? 3 : 0,
               }}
             >
               <Button
@@ -331,7 +332,7 @@ const Hero: React.FC = () => {
           alt="Hero illustration"
           sx={{
             width: isMobile
-              ? "362px"
+              ? "100%"
               : isTablet
               ? "263px"
               : { md: "45%", lg: "580px" },
