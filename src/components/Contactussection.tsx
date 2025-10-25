@@ -679,6 +679,7 @@ const ContactUsSection: React.FC = () => {
                   textTransform: "none",
                   color: "#FFFFFF",
                   "&:hover": {
+                    color: "#FFFFFF",
                     background: isSubmitting
                       ? "#cccccc"
                       : "radial-gradient(88% 75% at 50% 50%, #1B44FE 37%, #5375FE 100%)",
