@@ -236,8 +236,9 @@ const ProblemSection: React.FC = () => {
                     color: "text.secondary",
                   }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam dolor odio, tempus id aliquet quis.
+                  Our platform helps educators automate grading, track progress
+                  effortlessly, and personalize learning for every student — so
+                  teaching feels inspiring again, not exhausting.
                 </Typography>
               </Box>
             </Box>
