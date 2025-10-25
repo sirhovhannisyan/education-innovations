@@ -10,7 +10,7 @@ const HowItWorksSection: React.FC = () => {
     {
       id: 1,
       title: "Teacher selects topic + level",
-      description: "Lorem ipsum dolir sit amet lorem ipsum dolor sit amet",
+      description: "Teachers choose the subject, difficulty, and class level.",
       bgColor: "surface.color3",
       textColor: "text.primary",
       icon: "/icons/teacher.svg",
@@ -18,7 +18,7 @@ const HowItWorksSection: React.FC = () => {
     {
       id: 2,
       title: "Platform generates targeted homework",
-      description: "Lorem ipsum dolir sit amet lorem ipsum dolor sit amet",
+      description: "AI instantly creates personalized assignments.",
       bgColor: "secondary.main",
       textColor: "text.primary",
       icon: "/icons/book_pen.svg",
@@ -27,7 +27,8 @@ const HowItWorksSection: React.FC = () => {
       id: 3,
       title:
         "Students complete → get feedback → teacher sees insights on gaps and progress",
-      description: "Lorem ipsum dolir sit amet lorem ipsum dolor sit amet",
+      description:
+        "Students receive feedback, while teachers track performance.",
       bgColor: "text.primary",
       textColor: "surface.color1",
       icon: "/icons/student.svg",
