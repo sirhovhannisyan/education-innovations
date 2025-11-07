@@ -1,23 +1,15 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { Pause, Play } from "lucide-react";
-import React, { useRef, useState } from "react";
+import { Play } from "lucide-react";
+import React, { useState } from "react";
 
 const VideoSection: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const togglePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
+  const handlePlayVideo = () => {
+    setIsPlaying(true);
   };
 
   return (
@@ -167,90 +159,78 @@ const VideoSection: React.FC = () => {
           outlineColor: "surface.color1",
           outlineOffset: "-10px",
           margin: "0 auto",
-          cursor: "pointer",
         }}
       >
-        {/* Video Element */}
-        <video
-          ref={videoRef}
-          width="100%"
-          height="100%"
-          poster="https://placehold.co/1100x666"
-          style={{
+        <Box
+          component="iframe"
+          key={isPlaying ? "playing" : "paused"}
+          src={`https://www.youtube.com/embed/21MAHYOtgkc?autoplay=${
+            isPlaying ? 1 : 0
+          }&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&loop=1&playlist=21MAHYOtgkc`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          title="Homework Rooster Explainer"
+          sx={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            border: 0,
             borderRadius: "inherit",
           }}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-        >
-          <source
-            src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-        {/* Play/Pause Button */}
-        <Box
-          onClick={togglePlayPause}
-          sx={{
-            width: { xs: "40px", sm: "68px", md: "68px" },
-            height: { xs: "40px", sm: "68px", md: "68px" },
-            left: { xs: "20px", sm: "36px", md: "36px" },
-            top: { xs: "20px", sm: "36px", md: "36px" },
-            position: "absolute",
-            bgcolor: "surface.color1",
-            boxShadow: "0px 6.86px 20.59px -1.23px rgba(219, 225, 255, 0.48)",
-            borderRadius: "999px",
-            outline: "1px solid",
-            outlineColor: "surface.color2",
-            outlineOffset: "-1px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "pointer",
-            zIndex: 10,
-          }}
-        >
-          {/* Inner Circle */}
+        />
+        {!isPlaying && (
           <Box
+            onClick={handlePlayVideo}
             sx={{
-              width: { xs: "32.16px", sm: "54.68px", md: "54.68px" },
-              height: { xs: "32.16px", sm: "54.68px", md: "54.68px" },
+              width: { xs: "40px", sm: "68px", md: "68px" },
+              height: { xs: "40px", sm: "68px", md: "68px" },
+              left: { xs: "20px", sm: "36px", md: "36px" },
+              top: { xs: "20px", sm: "36px", md: "36px" },
+              position: "absolute",
               bgcolor: "surface.color1",
-              boxShadow: {
-                xs: "0px 0px 0px 0.48px #E6EAF4",
-                sm: "0px 0px 0px 0.81px #E6EAF4",
-                md: "0px 0px 0px 0.81px #E6EAF4",
-              },
-              overflow: "hidden",
-              borderRadius: { xs: "556.47px", sm: "946px", md: "946px" },
+              boxShadow: "0px 6.86px 20.59px -1.23px rgba(219, 225, 255, 0.48)",
+              borderRadius: "999px",
+              outline: "1px solid",
+              outlineColor: "surface.color2",
+              outlineOffset: "-1px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              cursor: "pointer",
+              zIndex: 10,
             }}
           >
-            {/* Play/Pause Icon */}
             <Box
               sx={{
-                width: { xs: "13.37px", sm: "22.73px", md: "22.73px" },
-                height: { xs: "13.37px", sm: "22.73px", md: "22.73px" },
-                position: "relative",
+                width: { xs: "32.16px", sm: "54.68px", md: "54.68px" },
+                height: { xs: "32.16px", sm: "54.68px", md: "54.68px" },
+                bgcolor: "surface.color1",
+                boxShadow: {
+                  xs: "0px 0px 0px 0.48px #E6EAF4",
+                  sm: "0px 0px 0px 0.81px #E6EAF4",
+                  md: "0px 0px 0px 0.81px #E6EAF4",
+                },
+                overflow: "hidden",
+                borderRadius: { xs: "556.47px", sm: "946px", md: "946px" },
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                color: "#1E1E1F",
               }}
             >
-              {isPlaying ? (
-                <Pause size={isMobile ? 13.37 : 22.73} fill="#1E1E1F" />
-              ) : (
+              <Box
+                sx={{
+                  width: { xs: "13.37px", sm: "22.73px", md: "22.73px" },
+                  height: { xs: "13.37px", sm: "22.73px", md: "22.73px" },
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#1E1E1F",
+                }}
+              >
                 <Play size={isMobile ? 13.37 : 22.73} fill="#1E1E1F" />
-              )}
+              </Box>
             </Box>
           </Box>
-        </Box>
+        )}
       </Box>
 
       {/* Overlay */}
