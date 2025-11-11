@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
+import PricingCTASection from "./PricingCTASection";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -41,6 +42,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       >
         {children}
       </Box>
+
+      <PricingCTASection />
 
       {/* Footer */}
       <Footer />

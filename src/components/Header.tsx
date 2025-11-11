@@ -134,6 +134,9 @@ const NavLinks: React.FC<{ isMobile?: boolean; onLinkClick?: () => void }> = ({
           }, 100);
         }
         break;
+      case "Pricing":
+        navigate("/pricing");
+        break;
       case "Contact us":
         navigate("/contact-us");
         break;
@@ -142,7 +145,7 @@ const NavLinks: React.FC<{ isMobile?: boolean; onLinkClick?: () => void }> = ({
     }
   };
 
-  const links = ["Home", "Features", "How it works", "Contact us"];
+  const links = ["Home", "Features", "How it works", "Pricing", "Contact us"];
 
   return (
     <Box
