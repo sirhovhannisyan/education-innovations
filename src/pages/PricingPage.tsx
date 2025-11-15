@@ -140,32 +140,32 @@ const PricingPage: React.FC = () => {
               {[
                 {
                   volume: "50–99 students (minimum package)",
-                  monthly: "100 CZK",
-                  annual: "1,200 CZK / year",
+                  monthly: "50 CZK",
+                  annual: "600 CZK / year",
                   discount: "—",
                 },
                 {
                   volume: "100–249 students",
-                  monthly: "90 CZK",
-                  annual: "1,080 CZK / year",
+                  monthly: "45 CZK",
+                  annual: "540 CZK / year",
                   discount: "–10 %",
                 },
                 {
                   volume: "250–499 students",
-                  monthly: "80 CZK",
-                  annual: "960 CZK / year",
+                  monthly: "40 CZK",
+                  annual: "480 CZK / year",
                   discount: "–20 %",
                 },
                 {
                   volume: "500–999 students",
-                  monthly: "70 CZK",
-                  annual: "840 CZK / year",
+                  monthly: "35 CZK",
+                  annual: "420 CZK / year",
                   discount: "–30 %",
                 },
                 {
                   volume: "1,000+ students",
-                  monthly: "60 CZK",
-                  annual: "720 CZK / year",
+                  monthly: "30 CZK",
+                  annual: "360 CZK / year",
                   discount: "–40 %",
                 },
               ].map((row) => (
@@ -210,7 +210,7 @@ const PricingPage: React.FC = () => {
             {[
               "Minimum order: 50 student accounts (5,000 CZK per month or 60,000 CZK per year).",
               "Billing: Annual payments preferred; semester options available upon request.",
-              "Pilot offer: 2-month introductory access for up to 50 students at 60 CZK per student per month.",
+              "Pilot offer: 2 months free introductory access upon demo presentation, with a minimum pricing package at 50 students count.",
               "Volume-based discounts automatically apply as your enrollment grows.",
             ].map((item) => (
               <ListItem
@@ -247,10 +247,11 @@ const PricingPage: React.FC = () => {
               maxWidth: "820px",
             }}
           >
-            We aim to keep our pricing honest, sustainable, and globally fair —
+            We aim to keep our pricing honest, sustainable, and globally fair
             allowing every institution to bring meaningful AI-driven learning
             experiences to their students at a price that respects both quality
-            and accessibility.
+            and accessibility. We are open to negotiating regional pricing to
+            fit your school’s unique context and needs.
           </Typography>
         </Box>
       </Container>
