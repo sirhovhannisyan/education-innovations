@@ -134,6 +134,24 @@ const NavLinks: React.FC<{ isMobile?: boolean; onLinkClick?: () => void }> = ({
           }, 100);
         }
         break;
+      case "Our Mission":
+        if (location.pathname === "/") {
+          // If on homepage, scroll to MissionSection
+          const missionSection = document.getElementById("mission-section");
+          if (missionSection) {
+            missionSection.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          // Navigate to homepage and scroll to mission section
+          navigate("/");
+          setTimeout(() => {
+            const missionSection = document.getElementById("mission-section");
+            if (missionSection) {
+              missionSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+        }
+        break;
       case "Pricing":
         navigate("/pricing");
         break;
@@ -145,7 +163,14 @@ const NavLinks: React.FC<{ isMobile?: boolean; onLinkClick?: () => void }> = ({
     }
   };
 
-  const links = ["Home", "Features", "How it works", "Pricing", "Contact us"];
+  const links = [
+    "Home",
+    "Features",
+    "How it works",
+    "Our Mission",
+    "Pricing",
+    "Contact us",
+  ];
 
   return (
     <Box
