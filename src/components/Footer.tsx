@@ -228,7 +228,7 @@ const Footer: React.FC = () => {
             >
               <ContactItem
                 iconSrc="/icons/sms.svg"
-                text="info@educationinnovations.net"
+                text="ethangiles@educationinnovations.net"
                 isMobile={isMobile}
                 isTablet={isTablet}
               />
