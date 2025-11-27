@@ -311,7 +311,7 @@ const ContactUsSection: React.FC = () => {
                   lineHeight: "24px",
                 }}
               >
-                info@educationinnovations.net
+                ethangiles@educationinnovations.net
               </Typography>
             </Box>
 
