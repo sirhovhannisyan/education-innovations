@@ -12,4 +12,7 @@ export const API_ENDPOINTS = {
   CONTACT_EMAIL:
     import.meta.env.VITE_CONTACT_EMAIL_API ||
     "https://api-prod-388599107889.europe-west4.run.app/education/email",
+  REQUEST_FREE_TRIAL:
+    import.meta.env.VITE_REQUEST_FREE_TRIAL_API ||
+    "https://api-prod-388599107889.europe-west4.run.app/public/request-free-trial",
 } as const;

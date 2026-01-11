@@ -1,6 +1,7 @@
 import AboutTheTool from "../components/Aboutthetool";
 import ActionSection from "../components/ActionSection";
 import FeaturesSection from "../components/Featuressection";
+import FreeTrialSection from "../components/FreeTrialSection";
 import Hero from "../components/Hero";
 import HowItWorksSection from "../components/Howitworkssection";
 import MissionSection from "../components/MissionSection";
@@ -21,6 +22,7 @@ const HomePage: React.FC = () => {
       <HowItWorksSection />
       <MissionSection />
       <VideoSection />
+      <FreeTrialSection />
       <ActionSection />
     </>
   );
