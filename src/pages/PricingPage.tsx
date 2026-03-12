@@ -1,18 +1,6 @@
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import {
   Box,
   Container,
-  Divider,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   Typography,
   useMediaQuery,
   useTheme,
@@ -66,7 +54,7 @@ const PricingPage: React.FC = () => {
               fontWeight: 700,
             }}
           >
-            Official Pricing Policy Statement
+            Simple, Fair Pricing
           </Typography>
 
           <Typography
@@ -77,181 +65,70 @@ const PricingPage: React.FC = () => {
             }}
           >
             At Homeworkrooster, we believe in fair and transparent pricing for
-            every institution, regardless of country or region. Our goal is to
-            make high-quality AI-powered English learning accessible to students
-            everywhere — without hidden fees, complicated negotiations, or
-            unequal treatment between markets.
+            every institution. Our goal is to make high-quality AI-powered
+            English learning accessible to students everywhere.
           </Typography>
         </Box>
 
-        <Typography
-          variant="body_regular"
-          sx={{
-            mt: { xs: 4, md: 5 },
-            maxWidth: "820px",
-            color: "text.secondary",
-          }}
-        >
-          All institutional licenses are billed in Czech crowns (CZK) and follow
-          one global pricing structure, with simple volume-based discounts that
-          make Homeworkrooster affordable for both small language schools and
-          large universities.
-        </Typography>
-
-        <TableContainer
+        <Box
           sx={{
             mt: { xs: 6, md: 8 },
+            mx: "auto",
+            maxWidth: "640px",
             borderRadius: "24px",
             overflow: "hidden",
             boxShadow: "0px 24px 64px rgba(27, 68, 254, 0.08)",
             backgroundColor: "surface.color1",
             border: "1px solid",
             borderColor: "surface.color2",
-          }}
-        >
-          <Table>
-            <TableHead
-              sx={{
-                background:
-                  "linear-gradient(90deg, rgba(27, 68, 254, 0.08) 0%, rgba(83, 117, 254, 0.08) 100%)",
-              }}
-            >
-              <TableRow>
-                {[
-                  "Student Volume",
-                  "Monthly Price / Student",
-                  "Annual Price / Student",
-                  "Discount vs Standard",
-                ].map((heading) => (
-                  <TableCell
-                    key={heading}
-                    sx={{
-                      fontWeight: 600,
-                      color: "text.primary",
-                      fontSize: "16px",
-                    }}
-                  >
-                    {heading}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {[
-                {
-                  volume: "50–99 students (minimum package)",
-                  monthly: "50 CZK",
-                  annual: "600 CZK / year",
-                  discount: "—",
-                },
-                {
-                  volume: "100–249 students",
-                  monthly: "45 CZK",
-                  annual: "540 CZK / year",
-                  discount: "–10 %",
-                },
-                {
-                  volume: "250–499 students",
-                  monthly: "40 CZK",
-                  annual: "480 CZK / year",
-                  discount: "–20 %",
-                },
-                {
-                  volume: "500–999 students",
-                  monthly: "35 CZK",
-                  annual: "420 CZK / year",
-                  discount: "–30 %",
-                },
-                {
-                  volume: "1,000+ students",
-                  monthly: "30 CZK",
-                  annual: "360 CZK / year",
-                  discount: "–40 %",
-                },
-              ].map((row) => (
-                <TableRow key={row.volume}>
-                  <TableCell sx={{ fontWeight: 600, color: "text.primary" }}>
-                    {row.volume}
-                  </TableCell>
-                  <TableCell sx={{ color: "text.secondary" }}>
-                    {row.monthly}
-                  </TableCell>
-                  <TableCell sx={{ color: "text.secondary" }}>
-                    {row.annual}
-                  </TableCell>
-                  <TableCell sx={{ color: "text.secondary" }}>
-                    {row.discount}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-
-        <Box
-          sx={{
-            mt: { xs: 6, md: 8 },
+            px: { xs: 4, sm: 6 },
+            py: { xs: 5, sm: 6 },
+            textAlign: "center",
             display: "flex",
             flexDirection: "column",
-            gap: 2,
+            alignItems: "center",
+            gap: 3,
           }}
         >
-          <List
+          <Typography
+            variant="body_semibold"
             sx={{
-              display: "grid",
-              gridTemplateColumns: {
-                xs: "1fr",
-                md: "repeat(2, minmax(0, 1fr))",
-              },
-              gap: 2,
-              p: 0,
+              color: "primary.main",
+              backgroundColor: "rgba(27, 68, 254, 0.08)",
+              px: 2,
+              py: 0.5,
+              borderRadius: "999px",
             }}
           >
-            {[
-              "Minimum order: 50 student accounts (5,000 CZK per month or 60,000 CZK per year).",
-              "Billing: Annual payments preferred; semester options available upon request.",
-              "Pilot offer: 2 months free introductory access upon demo presentation, with a minimum pricing package at 50 students count.",
-              "Volume-based discounts automatically apply as your enrollment grows.",
-            ].map((item) => (
-              <ListItem
-                key={item}
-                sx={{
-                  alignItems: "flex-start",
-                  gap: 1.5,
-                  px: 0,
-                }}
-              >
-                <ListItemIcon
-                  sx={{ minWidth: "32px", color: "primary.main", mt: 0.5 }}
-                >
-                  <CheckCircleIcon fontSize="small" />
-                </ListItemIcon>
-                <ListItemText
-                  primaryTypographyProps={{
-                    variant: "body_regular",
-                    sx: { color: "text.secondary" },
-                  }}
-                >
-                  {item}
-                </ListItemText>
-              </ListItem>
-            ))}
-          </List>
+            Start with a free 2-month trial
+          </Typography>
+          <Typography
+            variant={isMobile ? "h4" : "h3"}
+            sx={{ fontWeight: 700, color: "primary.main" }}
+          >
+            then 10–20 CZK
+          </Typography>
+          <Typography
+            variant="body_regular"
+            sx={{ color: "text.secondary", maxWidth: "460px" }}
+          >
+            per student per month, depending on student volume. The exact price
+            is finalized at the end of the trial period.
+          </Typography>
+        </Box>
 
-          <Divider />
-
+        <Box sx={{ mt: { xs: 6, md: 8 }, maxWidth: "820px", mx: "auto" }}>
           <Typography
             variant="body_regular"
             sx={{
               color: "text.secondary",
-              maxWidth: "820px",
+              textAlign: "center",
             }}
           >
             We aim to keep our pricing honest, sustainable, and globally fair
             allowing every institution to bring meaningful AI-driven learning
             experiences to their students at a price that respects both quality
-            and accessibility. We are open to negotiating regional pricing to
-            fit your school’s unique context and needs.
+            and accessibility.
           </Typography>
         </Box>
       </Container>
